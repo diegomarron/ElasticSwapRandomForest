@@ -6,7 +6,10 @@ This repository contains two orthogonal components:
 + **Elastic component**: dynamically increases/decreases the number of learners in the ensemble
 
 
-
+Files:
++ *src/main/java/moa/classifiers/meta/SwapRandomForest.java*: Only the Swap component implemented on top of the Adaptive Random Forest
++ *src/main/java/moa/classifiers/meta/ElasticRandomForest.java*: Both Swap and Elastic components implemented on top of the Adaptive Random Forest
++ *src/main/java/moa/classifiers/meta/ElasticARF.java*: Only the elastic component only  implemented on top of the Adaptive Random Forest
 
 
 
@@ -37,6 +40,7 @@ Or directly copy the bibtext:
 **REQUIRES MAVEN**
 
 This repository only contains the contributions explained in the above paper. We make use of maven to download moa artifact and create a jar file containing everithing.
+
 Complete jar relative path: target/Crunchify/Crunchify.jar
 
 
