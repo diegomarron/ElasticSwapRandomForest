@@ -1,6 +1,14 @@
 # ElasticSwapRandomForest
 The Resource-aware Elastic Swap Random Forest for Evolving Data Streams (ESRF) algorithm reduces the number of trees in the Random Forest up to one third on average while providing the same accruacy.
 
+This repository contains two orthogonal components:
++ **Swap component**: splits learners into two sets based on their accuracy
++ **Elastic component**: dynamically increases/decreases the number of learners in the ensemble
+
+
+
+
+
 
 ## Citing Elastic Swap Random Forest
 
@@ -26,7 +34,12 @@ Or directly copy the bibtext:
 
 ## Clone repository and build
 
-** REQUIRES MAVEN **
+**REQUIRES MAVEN**
+
+This repository only contains the contributions explained in the above paper. We make use of maven to download moa artifact and create a jar file containing everithing.
+Complete jar relative path: target/Crunchify/Crunchify.jar
+
+
 
 ```
 git clone https://github.com/diegomarron/ElasticSwapRandomForest
