@@ -37,7 +37,10 @@ Or directly copy the bibtext:
 
 ## Clone repository and build
 
-**REQUIRES MAVEN**
+
+**This repo REQUIRES MAVEN installed**
+[How to install Maven](https://maven.apache.org/install.html)
+
 
 This repository only contains the contributions explained in the above paper. We make use of maven to download moa artifact and create a jar file containing everithing.
 
@@ -54,6 +57,7 @@ mvn package
 ```
 
 ## How to execute it
+
 
 
 ### Swap Random Forest
