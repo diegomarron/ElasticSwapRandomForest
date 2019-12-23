@@ -53,7 +53,7 @@ import java.text.DecimalFormat;
 import java.io.Serializable;
 
 
-public class ElasticRandomForest10 extends AbstractClassifier implements MultiClassClassifier {
+public class ElasticRandomForest extends AbstractClassifier implements MultiClassClassifier {
 
 
     /////////////////////////////////////////////////////////////////////////////////////
