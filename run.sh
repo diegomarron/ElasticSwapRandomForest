@@ -52,18 +52,40 @@ run_elastic_swap(){
 
 
 
+SWAP_ONLY=0
+ELASTIC_ONLY=1
+ELASTIC_SWAP=2
 
 
-while getopts "se" o; do
+
+RUN_OPT=$ELASTIC_SWAP
+
+
+while getopts "d:es" o; do
     case "${o}" in
-        s)
-            run_swap_only
-	    exit 0
-            ;;
+	d)
+	    DS=$OPTARG
+	    ;;
+
         e)
-	    run_elastic_only
-	    exit 0
+	    RUN_OPT=$ELASTIC_ONLY
+	    
+	    #SWAP_ONLY=0
+	    #ELASTIC_ONLY=1
+
+	    #run_elastic_only
+	    #exit 0
             ;;
+        s)
+	    RUN_OPT=$SWAP_ONLY
+
+	    #SWAP_ONLY=1
+	    #ELASTIC_ONLY=0
+	    
+            #run_swap_only
+	    #exit 0
+            ;;
+
         *)
             usage
             ;;
@@ -72,15 +94,19 @@ done
 shift $((OPTIND-1))
 
 
-if [ -z "${s}" ] || [ -z "${p}" ]; then
-    usage
-    exit 1
-fi
 
+case "${RUN_OPT}" in
+    $SWAP_ONLY)
+	run_swap_only
+        ;;
+    $ELASTIC_ONLY)
+	run_elastic_only
+        ;;
+    $ELASTIC_SWAP)
+	run_elastic_swap
+        ;;
 
-run_elastic_swap
-
-
+esac
 
 
 

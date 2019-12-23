@@ -58,28 +58,61 @@ mvn package
 
 ## How to execute it
 
+### Using run.sh script
+
+The easiest way to run a quick experiment is by using the run.sh scrip provided using the elecNormnew dataset (included in dataset/elecNormnew.arff).
 
 
-
-### Swap Random Forest
-
+To run the Swap only mechanism (SwapRandomforest)
 ```
-java -cp target/Crunchify/Crunchify.jar moa.DoTask 'EvaluatePrequentialCV -l (meta.SwapRandomForest -f 10 -c 10 -s 100) -s (ArffFileStream -f /PATH/TO/ARFF_FILE) -e BasicClassificationPerformanceEvaluator -f 100000'
-
-```
-
-
-### Elastic Swap Random Forest
-
-```
-java -cp target/Crunchify/Crunchify.jar moa.DoTask 'EvaluatePrequentialCV -l (meta.ElasticRandomForest -f 10 -c 10 -s 100) -s (ArffFileStream -f /PATH/TO/ARFF_FILE) -e BasicClassificationPerformanceEvaluator -f 100000'
+bash run -s
 
 ```
 
-### Elastic Adaptive Random Forest
+If no option is given, the scrip run the Swap and Elastic mechanism (ElasticSwapRandomforest)
+```
+bash run
 
 ```
-java -cp target/Crunchify/Crunchify.jar moa.DoTask 'EvaluatePrequentialCV -l (meta.ElasticARF -f 10 -c 10 -s 100) -s (ArffFileStream -f /PATH/TO/ARFF_FILE) -e BasicClassificationPerformanceEvaluator -f 100000'
+
+To run the Elastic only mechanism (Elastic AdaptiveRandomforest)
+```
+bash run -e
+
+```
+
+
+To test using a different dataset, use the -d /PATH/TO/DATASET. For example, using the elecnormnew dataset included in this repo:
+```
+bash run -e -d datasets/elecNormNew.arff
+
+```
+
+
+
+### Run Manually from command line
+
+
+
+#### Swap Random Forest
+
+```
+java -cp target/Crunchify/Crunchify.jar moa.DoTask 'EvaluatePrequentialCV -l (meta.SwapRandomForest -f 10 -c 10 -s 100) -s (ArffFileStream -f datasets/elecNormNew.arff)) -e BasicClassificationPerformanceEvaluator -f 100000'
+
+```
+
+
+#### Elastic Swap Random Forest
+
+```
+java -cp target/Crunchify/Crunchify.jar moa.DoTask 'EvaluatePrequentialCV -l (meta.ElasticRandomForest -f 10 -c 10 -s 100) -s (ArffFileStream -f datasets/elecNormNew.arff)) -e BasicClassificationPerformanceEvaluator -f 100000'
+
+```
+
+#### Elastic Adaptive Random Forest
+
+```
+java -cp target/Crunchify/Crunchify.jar moa.DoTask 'EvaluatePrequentialCV -l (meta.ElasticARF -f 10 -c 10 -s 100) -s (ArffFileStream -f datasets/elecNormNew.arff)) -e BasicClassificationPerformanceEvaluator -f 100000'
 
 ```
 
